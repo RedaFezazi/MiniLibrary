@@ -12,15 +12,21 @@ const main = document.querySelector("main");
 const overlay = document.querySelector(".overlay");
 const bookDisplay = document.querySelector(".bookDisplay");
 const input = document.querySelector("input");
+const overlayHeader = document.querySelector(".bookDisplay");
+const h1 = document.querySelector("h1");
 let articles;
 let data;
 const fetchingData = () => __awaiter(void 0, void 0, void 0, function* () {
     data = yield (yield fetch("https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books")).json();
-    console.log(data);
     displayBooks(data, input === null || input === void 0 ? void 0 : input.value);
 });
 fetchingData();
+// The following function takes a array of books and a string.
+// If the string is empty it will show all the books but in the case the string contains characters it will compare
+// to the book's title and the book's author's name then filter the results depending on the string content.
 const displayBooks = (books, input) => {
+    if (h1)
+        h1.innerText = "8 Classic Childrens books";
     books
         .filter((book) => {
         return (book.title + book.author)
@@ -32,17 +38,10 @@ const displayBooks = (books, input) => {
         article.className = "book";
         main === null || main === void 0 ? void 0 : main.append(article);
     });
-    addingEvents();
+    infoPageEvent();
 };
 // EventListeners
-input.addEventListener("input", (e) => {
-    const event = e.target;
-    articles = document.querySelectorAll("main article");
-    articles.forEach((article) => article.remove());
-    displayBooks(data, event.value ? event.value : "");
-});
-const addingEvents = () => {
-    const overlayHeader = document.querySelector(".bookDisplay");
+const infoPageEvent = () => {
     articles = document.querySelectorAll("main article");
     articles.forEach((article) => {
         article.addEventListener("click", (e) => {
@@ -73,6 +72,12 @@ const addingEvents = () => {
         });
     });
 };
+input.addEventListener("input", (e) => {
+    const event = e.target;
+    articles = document.querySelectorAll("main article");
+    articles.forEach((article) => article.remove());
+    displayBooks(data, event.value ? event.value : "");
+});
 (_a = document.querySelector(".back")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     var _a;
     (_a = bookDisplay === null || bookDisplay === void 0 ? void 0 : bookDisplay.firstChild) === null || _a === void 0 ? void 0 : _a.remove();
