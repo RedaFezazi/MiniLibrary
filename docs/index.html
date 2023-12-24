@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/16e9f21624.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>My Tiny Library | Reda Fezazi</title>
+  </head>
+  <body>
+    <aside class="search">
+      <input type="text" />
+      <i class="loop fa-solid fa-magnifying-glass"></i>
+    </aside>
+    <main><h1>8 Classic Childrens books</h1></main>
+    <aside class="overlay hidden">
+      <article class="overlayContent">
+        <i class="back fa-sharp fa-solid fa-arrow-left-long"></i>
+        <header class="bookDisplay"></header>
+        <footer class="bookDisc">
+          <section>
+            <h4 id="title"></h4>
+            <p id="author"></p>
+          </section>
+          <section>
+            <p id="disc"></p>
+          </section>
+          <section>
+            <p id="audiance"></p>
+            <p id="firsPublish"></p>
+            <p id="pages"></p>
+            <p id="publisher"></p>
+          </section>
+          <button class="buy" type="button">Oh, I want to read it!</button>
+        </footer>
+      </article>
+    </aside>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
